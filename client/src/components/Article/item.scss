@@ -1,0 +1,65 @@
+@import "../../assets/scss/functions.scss";
+.article-item {
+    padding: torem(10px);
+}
+
+.article-item-link {
+    display: block;
+}
+
+.article-item-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.article-item-tip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: torem(30px);
+}
+
+.article-item-tip i {
+    display: block;
+    width: torem(20px);
+    height: torem(20px);
+    background-color: red;
+}
+
+.article-item-title {
+    overflow: hidden;
+    flex: 2 0 auto;
+    align-self: center;
+    font-size: torem(16px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: lightgreen;
+}
+.article-item-title h3 {
+    height: torem(28px);
+    line-height: torem(28px);
+}
+.article-item-body {
+  margin-top: torem(5px);
+  display: flex;
+}
+.article-item-body-header {
+  padding-right: torem(5px);
+}
+.article-item-avatar {
+  height: torem(40px);
+  line-height: torem(40px);
+  width: torem(40px);
+  border-radius: 50%;
+  background-color: lightsalmon;
+}
+.article-item-body-content {
+  overflow: hidden;
+  flex: 2 0 auto;
+}
+.article-item-body-content-header,.article-item-body-content-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

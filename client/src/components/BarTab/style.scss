@@ -1,0 +1,47 @@
+@import "../../assets/scss/functions.scss";
+$headerBgColor: #F6F6F6 !default;
+$headerBgColorActive: #80BD01 !default;
+$headerTextColor: #80BD01 !default;
+$headerTextColorActive: #fff !default;
+.header {
+    position: relative;
+    height: torem(44px);
+    overflow: hidden;
+}
+.header-nav {
+    background-color: $headerBgColor;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all .3s ease;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .25);
+    z-index: 999;
+}
+.header-nav-ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-nav__item {
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    height: torem(44px);
+}
+
+.header-nav__item__title {
+    color: $headerTextColor;
+    display: inline-block;
+    border-radius: torem(10px);
+    padding: torem(5px) torem(10px);
+    background-clip: padding-box;
+}
+
+.header-nav__item__title.active {
+    color: $headerTextColorActive;
+    background-color: $headerBgColorActive;
+}

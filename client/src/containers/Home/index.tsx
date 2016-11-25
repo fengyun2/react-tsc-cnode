@@ -1,5 +1,6 @@
 "use strict"
 import * as React from 'react'
+import ArtcileList from '../../components/Article'
 
 class Home extends React.Component<any, any> {
   // componentDidMount() {
@@ -8,9 +9,7 @@ class Home extends React.Component<any, any> {
   render () {
     return (
       <div>
-        <header>
-          <h1 className="title">Home</h1>
-        </header>
+        <ArtcileList />
       </div>
     )
   }

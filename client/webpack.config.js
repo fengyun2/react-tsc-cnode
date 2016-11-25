@@ -80,26 +80,26 @@ module.exports = {
                 test: /\.(ts|tsx)?$/,
                 loader: "babel!ts"
             },
-            // {
-            //     test: /\.scss$/,
-            //     loader: "style!css!sass"
-            // }, {
-            //     test: /\.css$/,
-            //     loader: "style!css"
-            // },
-
             {
-                        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+            }, {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style', 'css!postcss')
             },
-                        {
-                        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
-            },
-                        {
-                        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss!less')
-            },
+
+        //     {
+        //                 test: /\.scss$/,
+        // loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
+        //     },
+        //                 {
+        //                 test: /\.css$/,
+        // loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
+        //     },
+        //                 {
+        //                 test: /\.less$/,
+        // loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss!less')
+        //     },
 
 
             {
