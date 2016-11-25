@@ -10,7 +10,9 @@
       "react-router",
       "react-router-redux",
       "fastclick",
-      "classnames"
+      "classnames",
+      "isomorphic-fetch",
+      "redux-thunk"
     ],
     // typeroots option has been previously configured
     "typeRoots": [
@@ -20,7 +22,7 @@
     "module": "commonjs",
     "removeComments": true,
     "sourceMap": true,
-    "target": "es5",
+    "target": "es6",
     "jsx": "react"
   }
 }

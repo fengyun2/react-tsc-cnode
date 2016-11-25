@@ -10,11 +10,11 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import { syncHistoryWithStore } from 'react-router-redux'
 
-// import * as configureStore from './configureStore'
+import configureStore from './configureStore'
 // import * as routes from './routes'
 
-// const store = configureStore()
-// const history = syncHistoryWithStore(browserHistory, store)
+const store = configureStore()
+const history = syncHistoryWithStore(browserHistory, store)
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', () => {
@@ -32,12 +32,14 @@ import Home from './containers/Home'
 import NotFound from './containers/NotFound'
 
 render(
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Home}></IndexRoute>
-      <Route path='*' component={NotFound}></Route>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path='/' component={App}>
+        <IndexRoute component={Home}></IndexRoute>
+        <Route path='*' component={NotFound}></Route>
+      </Route>
+    </Router>
+  </Provider>
   ,
   document.getElementById('app')
   )

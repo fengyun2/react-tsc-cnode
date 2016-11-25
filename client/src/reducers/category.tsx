@@ -1,4 +1,4 @@
-import {ADD_CATE, SHOW_CATE, REQUEST_ADD_CATE, RECEIVE_ADD_CATE } from 'CONSTANTS/actionTypes'
+import {ADD_CATE, SHOW_CATE, REQUEST_ADD_CATE, RECEIVE_ADD_CATE } from '../constants/actionTypes'
 
 const initialItems = [{
   name: '婚纱摄影',

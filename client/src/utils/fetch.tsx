@@ -2,7 +2,7 @@
 * @Author: fengyun2
 * @Date:   2016-11-10 11:30:40
  * @Last Modified by: fengyun2
- * @Last Modified time: 2016-11-17 23:03:18
+ * @Last Modified time: 2016-11-25 17:15:20
 */
 
 /**
@@ -10,14 +10,14 @@
  * fetch.js
  */
 
-import 'isomorphic-fetch'
+import * as fetch from 'isomorphic-fetch'
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response
   }
   const error = new Error(response.statusText)
-  error.response = response
+  error.message = response
   throw error
 }
 

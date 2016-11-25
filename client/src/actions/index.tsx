@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+import * as fetch from 'isomorphic-fetch'
 
 import {
   ADD_ITEM,
@@ -8,7 +8,7 @@ import {
   ADD_CATE,
   REQUEST_ADD_CATE,
   RECEIVE_ADD_CATE
-} from 'CONSTANTS/actionTypes'
+} from '../constants/actionTypes'
 
 // Item
 
@@ -91,10 +91,10 @@ export const addCategory = data => {
 }
 
 export const showCategory = data => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log('get category successfull')
-      resolve()
-    }, 500)
-  })
+  // return new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     console.log('get category successfull')
+  //     resolve()
+  //   }, 500)
+  // })
 }

@@ -30,7 +30,15 @@ FastClick['attach'](document.body);
 
 2. 引入 typescript 后, 暂时不知道这种路由(routes/index.tsx)如何配置, 先搁浅在这先
 
-3. 引入 `css` 又不知抽了什么风, 居然解析不了
+3. ~~引入 `css` 又不知抽了什么风, 居然解析不了~~
+
+4. `typescript 2.0` 解析 Promise 失败, 要等到 `2.1` 版本才可以修复, 内心奔溃呀...
+
+```js
+error TS2304: Cannot find name 'Promise'.
+```
+
+[https://github.com/Microsoft/TypeScript/issues/11396](https://github.com/Microsoft/TypeScript/issues/11396)
 
 ###2016/11/25
 
