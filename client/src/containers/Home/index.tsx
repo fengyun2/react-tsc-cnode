@@ -4,16 +4,20 @@ import { connect } from 'react-redux'
 // import * as ItemsActions from '../../actions'
 import { bindActionCreators } from 'redux'
 import ArtcileList from '../../components/Article'
-import { addItem, deleteItem, deleteAll } from '../../actions/index';
+import { getTopics } from '../../actions/index';
 
 class Home extends React.Component<any, any> {
   componentDidMount() {
 
   }
   render () {
+    const {topics, actions} = this.props
+    console.log('topics')
+    console.log(topics)
+    console.log(actions)
     return (
       <div>
-        <ArtcileList />
+        <ArtcileList topics={topics} getTopics={actions.getTopics} />
       </div>
     )
   }
@@ -21,11 +25,10 @@ class Home extends React.Component<any, any> {
 function mapStateToProps(state) {
   console.log(state)
   return {
-    items: state.items,
-    filter: state.filter
+    topics: state.topics
   }
 }
-const ItemsActions = {addItem, deleteItem, deleteAll}
+const ItemsActions = {getTopics}
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(ItemsActions, dispatch)

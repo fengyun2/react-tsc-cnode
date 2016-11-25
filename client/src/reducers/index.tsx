@@ -3,12 +3,14 @@ import { combineReducers } from 'redux'
 import items from './items'
 import filter from './filter'
 import category from './category'
+import topics from './topics'
 
 const rootReducer = combineReducers({
   routing,
   items,
   filter,
-  category
+  category,
+  topics
 })
 
 // console.log(`rootReducer: `, rootReducer)

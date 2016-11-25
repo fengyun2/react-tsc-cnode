@@ -7,8 +7,44 @@ import {
   FILTER_ITEM,
   ADD_CATE,
   REQUEST_ADD_CATE,
-  RECEIVE_ADD_CATE
+  RECEIVE_ADD_CATE,
+  GET_TOPICS,
+  GET_TOPICS_SUCCESS,
+  GET_TOPICS_FAIL,
+  GET_TOPIC_BYID,
 } from '../constants/actionTypes'
+
+/**
+ * cnode topics
+ */
+export const getTopics = () => {
+    return (dispatch) => {
+      return fetch(`https://cnodejs.org/api/v1/topics/11`)
+        .then(response => response.json())
+        .then(json => {
+          console.log('获取话题首页列表成功', json)
+          return dispatch(getTopicSuccess(json))
+        }).catch(err => {
+          console.log(`获取话题首页列表失败`, err)
+          return dispatch(GET_TOPICS_FAIL)
+        })
+    }
+}
+
+const getTopicSuccess = (data) => {
+  return dispatch => {
+    dispatch({type: 'GET_TOPICS_SUCCESS', payload: data})
+  }
+}
+const getTopicFail = (data) => {
+  return dispatch => {
+    dispatch({type: 'GET_TOPICS_FAIL'})
+  }
+}
+/**
+ * cnode topic/:id
+ */
+
 
 // Item
 
