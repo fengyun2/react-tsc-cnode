@@ -4,7 +4,8 @@ import * as classNames from 'classnames'
 // import BarTab from 'COMPONENTS/BarTab'
 // import NavLink from 'COMPONENTS/NavLink'
 
-// import './test.css'
+// import './style.scss';
+import './style.scss'
 
 // const pageClassNames = classNames(styles.page, styles.pageCurrent)
 
