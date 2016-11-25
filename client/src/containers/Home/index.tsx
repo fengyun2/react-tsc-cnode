@@ -7,14 +7,15 @@ import ArtcileList from '../../components/Article'
 import { getTopics } from '../../actions/index';
 
 class Home extends React.Component<any, any> {
+  constructor (props) {
+    super(props)
+  }
   componentDidMount() {
 
   }
   render () {
     const {topics, actions} = this.props
-    console.log('topics')
-    console.log(topics)
-    console.log(actions)
+
     return (
       <div>
         <ArtcileList topics={topics} getTopics={actions.getTopics} />
@@ -23,7 +24,6 @@ class Home extends React.Component<any, any> {
   }
 }
 function mapStateToProps(state) {
-  console.log(state)
   return {
     topics: state.topics
   }

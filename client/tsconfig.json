@@ -12,7 +12,8 @@
       "fastclick",
       "classnames",
       "isomorphic-fetch",
-      "redux-thunk"
+      "redux-thunk",
+      "lodash"
     ],
     // typeroots option has been previously configured
     "typeRoots": [

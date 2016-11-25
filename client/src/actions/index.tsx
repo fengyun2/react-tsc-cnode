@@ -9,42 +9,104 @@ import {
   REQUEST_ADD_CATE,
   RECEIVE_ADD_CATE,
   GET_TOPICS,
+  GET_TOPICS_BEFORE,
   GET_TOPICS_SUCCESS,
   GET_TOPICS_FAIL,
   GET_TOPIC_BYID,
+  GET_TOPIC_BYID_BEFORE,
+  GET_TOPIC_BYID_SUCCESS,
+  GET_TOPIC_BYID_FAIL
 } from '../constants/actionTypes'
 
 /**
  * cnode topics
  */
 export const getTopics = () => {
-    return (dispatch) => {
-      return fetch(`https://cnodejs.org/api/v1/topics/11`)
-        .then(response => response.json())
-        .then(json => {
-          console.log('获取话题首页列表成功', json)
-          return dispatch(getTopicSuccess(json))
-        }).catch(err => {
-          console.log(`获取话题首页列表失败`, err)
-          return dispatch(GET_TOPICS_FAIL)
-        })
-    }
+  return (dispatch) => {
+    dispatch(getTopicsBefore())
+    fetch(`https://cnodejs.org/api/v1/topics`).then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        return response
+      }
+      const error = new Error(response.statusText)
+      throw error
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log('获取话题首页列表成功', json)
+        // console.log(getTopicsSuccess(json))
+        dispatch(getTopicsSuccess(json))
+      })
+      .catch(err => {
+        console.log(`获取话题首页列表失败`, err)
+        dispatch(getTopicsFail())
+      })
+  }
 }
 
-const getTopicSuccess = (data) => {
-  return dispatch => {
-    dispatch({type: 'GET_TOPICS_SUCCESS', payload: data})
-  }
+const getTopicsBefore = (data
+  ?) => {
+  return {type: 'GET_TOPICS_BEFORE', payload: {}}
+  // return dispatch => {
+  //   dispatch({type: 'GET_TOPICS_BEFORE', payload: {}})
+  // }
 }
-const getTopicFail = (data) => {
-  return dispatch => {
-    dispatch({type: 'GET_TOPICS_FAIL'})
-  }
+
+const getTopicsSuccess = (data) => {
+  return {type: 'GET_TOPICS_SUCCESS', payload: data}
+  // return dispatch => {
+  //   dispatch({type: 'GET_TOPICS_SUCCESS', payload: data})
+  // }
+}
+const getTopicsFail = (data?) => {
+  return {type: 'GET_TOPICS_FAIL'}
+  // return dispatch => {
+  //   dispatch({type: 'GET_TOPICS_FAIL'})
+  // }
 }
 /**
  * cnode topic/:id
  */
-
+export const getTopicById = () => {
+  return (dispatch) => {
+    dispatch(getTopicByIdBefore())
+    fetch(`https://cnodejs.org/api/v1/topics`).then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        return response
+      }
+      const error = new Error(response.statusText)
+      throw error
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log('获取话题首页列表成功', json)
+        dispatch(getTopicByIdSuccess(json))
+      })
+      .catch(err => {
+        console.log(`获取话题首页列表失败`, err)
+        dispatch(getTopicByIdFail())
+      })
+  }
+}
+const getTopicByIdBefore = (data
+  ?) => {
+    return {type: 'GET_TOPIC_BYID_BEFORE', payload: {}}
+  // return dispatch => {
+  //   dispatch({type: 'GET_TOPIC_BYID_BEFORE', payload: {}})
+  // }
+}
+const getTopicByIdSuccess = (data) => {
+  return {type: 'GET_TOPIC_BYID_SUCCESS', payload: data}
+  // return dispatch => {
+  //   dispatch({type: 'GET_TOPIC_BYID_SUCCESS', payload: data})
+  // }
+}
+const getTopicByIdFail = (data?) => {
+  return {type: 'GET_TOPIC_BYID_FAIL'}
+  // return dispatch => {
+  //   dispatch({type: 'GET_TOPIC_BYID_FAIL'})
+  // }
+}
 
 // Item
 
@@ -103,7 +165,7 @@ function requestAddCategory(data) {
 }
 
 function receiveAddCategory(json) {
-    return dispatch => {
+  return dispatch => {
     dispatch({type: RECEIVE_ADD_CATE, payload: json})
   }
   // return {type: RECEIVE_ADD_CATE, json}
@@ -127,10 +189,6 @@ export const addCategory = data => {
 }
 
 export const showCategory = data => {
-  // return new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     console.log('get category successfull')
-  //     resolve()
-  //   }, 500)
-  // })
+  // return new Promise((resolve, reject) => {   setTimeout(() => {
+  // console.log('get category successfull')     resolve()   }, 500) })
 }

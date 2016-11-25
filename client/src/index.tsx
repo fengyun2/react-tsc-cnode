@@ -33,7 +33,7 @@ import NotFound from './containers/NotFound'
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={history}>
       <Route path='/' component={App}>
         <IndexRoute component={Home}></IndexRoute>
         <Route path='*' component={NotFound}></Route>

@@ -15,6 +15,21 @@
 
 ##BUG
 
+###2016/11/27
+
+- 坑越来越深了
+
+发现数据不会自动同步了...(数据获取成功不会回调...)
+
+- 修复 `reducers` 文件夹下的 `topics` 数据回来后, 界面不会刷新的问题,
+
+```js
+// 注意这里不能用 数组的 contact方法合并, 要返回一个新的对象, 否则会导致state错乱, UI页面不会刷新， 而且这个2.0版本的typescript不支持es6的 Object.assign,所以这里引入了 Object.assign
+console.log('GET_TOPICS_SUCCESS')
+console.log(action.payload.data)
+state = _.assign({}, state, {items: action.payload.data})
+```
+
 ###2016/11/26
 
 1. `Error:(6, 49) TS2339: Property 'attach' does not exist on type 'typeof fastclick'`
