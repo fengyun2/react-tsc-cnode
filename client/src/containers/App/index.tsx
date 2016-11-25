@@ -4,7 +4,7 @@ import * as classNames from 'classnames'
 // import BarTab from 'COMPONENTS/BarTab'
 // import NavLink from 'COMPONENTS/NavLink'
 
-// import * as styles from './style.scss'
+// import './test.css'
 
 // const pageClassNames = classNames(styles.page, styles.pageCurrent)
 
@@ -27,6 +27,10 @@ class App extends React.Component<{children: any}, any> {
         <header>
           <h1>我是App</h1>
         </header>
+
+        <div className="content">
+          {this.props.children}
+        </div>
       </div>
     )
   }

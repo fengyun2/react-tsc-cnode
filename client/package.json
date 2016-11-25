@@ -1,14 +1,14 @@
 {
-  "name": "webpack2-react-redux-antd-mobile",
+  "name": "react-with-tsc",
   "version": "1.0.2",
-  "description": "webpack2-react-redux-antd-mobile",
+  "description": "react-with-tsc",
   "main": "src/index.js",
   "keywords": [
     "react",
     "react-router",
     "redux",
-    "react-server",
-    "webpack2"
+    "webpack",
+    "typescript"
   ],
   "author": "fengyun2 <2816708306@qq.com>",
   "private": true,
@@ -48,6 +48,15 @@
     "weui": "^0.4.3"
   },
   "devDependencies": {
+    "@types/classnames": "^0.0.32",
+    "@types/fastclick": "^1.0.28",
+    "@types/node": "^6.0.51",
+    "@types/react": "^0.14.50",
+    "@types/react-dom": "^0.14.19",
+    "@types/react-redux": "^4.4.33",
+    "@types/react-router": "^2.0.39",
+    "@types/react-router-redux": "^4.0.34",
+    "autoprefixer": "^6.5.3",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-antd": "^0.5.1",

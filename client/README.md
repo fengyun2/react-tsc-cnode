@@ -1,19 +1,36 @@
-# webpack2-react-redux-antd-mobile
+# react-with-tsc
 
-> webpack2-react-redux-antd-mobile
+> react-with-tsc
 
 ##技术栈
 
-- webpack2
-- ant-mobile
+- webpack
 - react
 - react-router
 - redux
 - fetch
 - express
+- typescript
 
 
 ##BUG
+
+###2016/11/26
+
+1. `Error:(6, 49) TS2339: Property 'attach' does not exist on type 'typeof fastclick'`
+
+Because of `Is the FastClick.d.ts wrong`
+
+[http://stackoverflow.com/questions/33908716/import-fastclick](http://stackoverflow.com/questions/33908716/import-fastclick)
+
+```js
+import * as FastClick from 'fastclick';
+FastClick['attach'](document.body);
+```
+
+2. 引入 typescript 后, 暂时不知道这种路由(routes/index.tsx)如何配置, 先搁浅在这先
+
+3. 引入 `css` 又不知抽了什么风, 居然解析不了
 
 ###2016/11/25
 
@@ -57,18 +74,23 @@ npm install @types/node --save-dev
 
 ···json
 {
-    "compilerOptions": {
-        // types option has been previously configured
-         "types": [
-            // add node as an option
-            "node"
-         ],
-         // typeroots option has been previously configured
-         "typeroots": [
-            // add path to @types
-            "../node_modules/@types"
-         ]
-    }
+  "compilerOptions": {
+    // types option has been previously configured
+      "types": [
+        // add node as an option
+        "node"
+      ],
+      // typeRoots option has been previously configured
+      "typeRoots": [
+        // add path to @types
+        "../node_modules/@types"
+      ],
+    "module": "commonjs",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es5",
+    "jsx": "react"
+  }
 }
 ```
 
@@ -84,25 +106,30 @@ npm install @types/node @types/react @types/react-dom @types/react-redux @types/
 
 ```json
 {
-    "compilerOptions": {
-        // types option has been previously configured
-         "types": [
-            // add node as an option
-            "node",
-            "react",
-            "react-dom",
-            "react-redux",
-            "react-router",
-            "react-router-redux",
-            "fastclick",
-            "classnames"
-         ],
-         // typeroots option has been previously configured
-         "typeroots": [
-            // add path to @types
-            "./node_modules/@types"
-         ]
-    }
+  "compilerOptions": {
+    // types option has been previously configured
+    "types": [
+      // add node as an option
+      "node",
+      "react",
+      "react-dom",
+      "react-redux",
+      "react-router",
+      "react-router-redux",
+      "fastclick",
+      "classnames"
+    ],
+    // typeroots option has been previously configured
+    "typeRoots": [
+      // add path to @types
+      "./node_modules/@types"
+    ],
+    "module": "commonjs",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es5",
+    "jsx": "react"
+  }
 }
 ```
 

@@ -1,7 +1,7 @@
 "use strict"
 import * as React from 'react'
 
-class Home extends React.Component<{dispatch: Function}, any> {
+class Home extends React.Component<any, any> {
   // componentDidMount() {
 
   // }

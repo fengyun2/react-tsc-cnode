@@ -4,6 +4,7 @@
 */
 
 var path = require('path')
+const autoprefixer = require('autoprefixer')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
@@ -30,7 +31,8 @@ module.exports = {
       '.json',
       '.html',
       '.css',
-      '.scss'
+      '.scss',
+      '.less'
     ],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
@@ -43,19 +45,19 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    // preLoaders: [
-    //   {
-    //     test: /\.vue$/,
-    //     loader: 'eslint',
-    //     include: projectRoot,
-    //     exclude: /node_modules/
-    //   }, {
-    //     test: /\.js$/,
-    //     loader: 'eslint',
-    //     include: projectRoot,
-    //     exclude: /node_modules/
-    //   }
-    // ],
+    preLoaders: [
+      {
+        test: /\.vue$/,
+        loader: 'eslint',
+        include: projectRoot,
+        exclude: /node_modules/
+      }, {
+        test: /\.js$/,
+        loader: 'eslint',
+        include: projectRoot,
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.vue$/,
@@ -70,7 +72,26 @@ module.exports = {
         loader: 'ts-loader',
         include: projectRoot,
         exclude: /node_modules/
-      }, {
+      },
+      {
+          test: /\.css$/,
+          loaders: ['style', 'css'],
+          include: projectRoot,
+          exclude: /node_modules/
+      },
+      {
+          test: /\.scss$/,
+          loader: ['style', 'css!sass'],
+          include: projectRoot,
+          exclude: /node_modules/
+      },
+      {
+          test: /\.less$/,
+          loader: ['style', 'css!less'],
+          include: projectRoot,
+          exclude: /node_modules/
+      },
+      {
         test: /\.json$/,
         loader: 'json'
       }, {
@@ -98,5 +119,13 @@ module.exports = {
   },
   vue: {
     loaders: utils.cssLoaders()
-  }
+  },
+  postcss: [
+    autoprefixer({
+        flexbox: true,
+        browsers: ['> 0.1%'],
+        cascade: false,
+        supports: true
+    })
+    ],
 }
