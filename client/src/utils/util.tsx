@@ -1,3 +1,6 @@
+/**
+ * 时间处理函数
+ */
 export const getDateDiff = function (dateTimeStamp) {
   let result:string = ''
   let minute = 1000 * 60

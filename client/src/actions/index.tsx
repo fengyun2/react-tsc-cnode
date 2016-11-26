@@ -21,10 +21,16 @@ import {
 /**
  * cnode topics
  */
-export const getTopics = () => {
+export const getTopics = (item?) => {
+  let url = 'https://cnodejs.org/api/v1/topics'
+  if (!!item) {
+    url += `?tab=${item.title}&page=${item.page.cur_page}&limit=10&&mdrender=false`
+  } else {
+    url += `?tab=all&page=1&limit=10&mdrender=false`
+  }
   return (dispatch) => {
     dispatch(getTopicsBefore())
-    fetch(`https://cnodejs.org/api/v1/topics`).then(response => {
+    fetch(url).then(response => {
       if (response.status >= 200 && response.status < 300) {
         return response
       }
@@ -34,7 +40,6 @@ export const getTopics = () => {
       .then(response => response.json())
       .then(json => {
         console.log('获取话题首页列表成功', json)
-        // console.log(getTopicsSuccess(json))
         dispatch(getTopicsSuccess(json))
       })
       .catch(err => {

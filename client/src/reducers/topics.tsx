@@ -19,8 +19,6 @@ const initialTopics = {
 // isFetching 来显示进度条， didInvalidate 来标记数据是否过期， lastUpdated 来存放数据最后更新时间， items
 // 存放列表信息本身 fetchedPageCount 页数 nextPageUrl 话题首页
 export function topics(state: any = initialTopics, action) {
-  // state = state || initialTopics
-  // if ()
   switch (action.type) {
     case GET_TOPICS_BEFORE:
       {
@@ -31,7 +29,7 @@ export function topics(state: any = initialTopics, action) {
       {
         // 注意这里不能用 数组的 contact方法合并, 要返回一个新的对象, 否则会导致state错乱, UI页面不会刷新， 而且这个2.0版本的typescript不支持es6的 Object.assign,所以这里引入了 Object.assign
         console.log('GET_TOPICS_SUCCESS')
-        console.log(action.payload.data)
+        // console.log(action.payload.data)
         state = _.assign({}, state, {items: action.payload.data})
 
         return state

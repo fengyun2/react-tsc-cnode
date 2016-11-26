@@ -34,6 +34,23 @@ state = _.assign({}, state, {items: action.payload.data})
 
 但是呢, 对css命名有严格控制(原因是 如果是typescript 不能识别他们的类名为有效的变量名, 就不能生效了), 总的一句来说, 在 typescript 中使用 css 就是一个无底洞...
 
+- 要使用 redux dispatch 发送数据, 必须在该组件或者父组件这样子处理, 才能 `dispatch` 数据:
+
+```js
+function mapStateToProps(state) {
+  return {topics: state.topics}
+}
+const ItemsActions = {
+  getTopics
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(ItemsActions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(BarTab)
+```
+
 ###2016/11/26
 
 1. `Error:(6, 49) TS2339: Property 'attach' does not exist on type 'typeof fastclick'`
