@@ -7,6 +7,7 @@ import BarTab from '../../components/BarTab'
  import "../../assets/scss/variables.scss";
  import "../../assets/scss/base.scss";
  import "../../assets/scss/functions.scss";
+
 import './style.scss'
 
 // const pageClassNames = classNames(styles.page, styles.pageCurrent)

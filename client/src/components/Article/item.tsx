@@ -1,6 +1,13 @@
 import * as React from 'react'
 import './item.scss'
 
+import {getDateDiff} from '../../utils/util'
+// import styles from './item.scss'
+
+function formatDate (date) {
+  return getDateDiff(new Date(date).getTime())
+}
+
 class ArticleItem extends React.Component<any, any> {
   constructor(props) {
     super(props)
@@ -8,6 +15,10 @@ class ArticleItem extends React.Component<any, any> {
   }
 
   render () {
+    const {item} = this.props
+    const avatarStyle = {
+      backgroundImage: `url(${item.author.avatar_url})`
+    }
     return (
       <li className="article-item">
         <a href="javascript:void(0)" className="article-item-link">
@@ -17,22 +28,22 @@ class ArticleItem extends React.Component<any, any> {
               <i></i>
             </div>
             <div className="article-item-title">
-              <h3>这，就是技术人的江湖</h3>
+              <h3>{item.title}</h3>
             </div>
 
             </div>
             <div className="article-item-body">
               <div className="article-item-body-header">
-                <div className="article-item-avatar"></div>
+                <div className="article-item-avatar" style={avatarStyle}></div>
               </div>
               <div className="article-item-body-content">
                 <div className="article-item-body-content-header">
-                  <span className="article-item-author">ly</span>
-                  <span className="article-item-read-count">100/1000</span>
+                  <span className="article-item-author">{item.author.loginname}</span>
+                  <span className="article-item-read-count">{item.reply_count}/{item.visit_count}</span>
                 </div>
                 <div className="article-item-body-content-footer">
-                  <span className="article-item-created-at">今天</span>
-                  <span className="article-item-last-read">今天</span>
+                  <span className="article-item-created-at">{formatDate(item.create_at)}</span>
+                  <span className="article-item-last-read">{formatDate(item.last_reply_at)}</span>
                 </div>
               </div>
               {/*<div className="item-body-footer"></div>*/}

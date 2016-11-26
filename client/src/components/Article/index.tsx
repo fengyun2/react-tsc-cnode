@@ -14,7 +14,7 @@ class ArtcileList extends React.Component<any, any> {
 
   render () {
     const {topics, getTopics} = this.props
-    console.log('topics', topics.items)
+    // console.log('topics', topics.items)
     let articleItem = '';
     if (!!topics && !!topics.items && topics.items.length > 0) {
      articleItem = topics.items.map((item) => {

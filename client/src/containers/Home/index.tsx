@@ -11,7 +11,10 @@ class Home extends React.Component<any, any> {
     super(props)
   }
   componentDidMount() {
-
+    let obj1 = {username: '张三', age: 20, sex: 'male'}
+    let obj2 = {username: '李四'}
+    let obj3 = Object.assign({}, obj1, obj2)
+    console.log(obj3)
   }
   render () {
     const {topics, actions} = this.props

@@ -21,7 +21,7 @@
 
 发现数据不会自动同步了...(数据获取成功不会回调...)
 
-- 修复 `reducers` 文件夹下的 `topics` 数据回来后, 界面不会刷新的问题,
+- 修复 `reducers` 文件夹下的 `topics` 数据回来后, 界面不会刷新的问题,(神奇啦, 居然又能识别 Object.assign了)
 
 ```js
 // 注意这里不能用 数组的 contact方法合并, 要返回一个新的对象, 否则会导致state错乱, UI页面不会刷新， 而且这个2.0版本的typescript不支持es6的 Object.assign,所以这里引入了 Object.assign
@@ -29,6 +29,10 @@ console.log('GET_TOPICS_SUCCESS')
 console.log(action.payload.data)
 state = _.assign({}, state, {items: action.payload.data})
 ```
+
+- 发现一个可以解决 typescript 可以使用  `import * as styles from './styles.scss'` 的插件[`typed-css-modules`](https://github.com/Quramy/typed-css-modules)
+
+但是呢, 对css命名有严格控制(原因是 如果是typescript 不能识别他们的类名为有效的变量名, 就不能生效了), 总的一句来说, 在 typescript 中使用 css 就是一个无底洞...
 
 ###2016/11/26
 
