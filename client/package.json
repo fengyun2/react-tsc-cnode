@@ -41,7 +41,7 @@
     "redux-actions": "^0.12.0",
     "redux-form": "^6.2.0",
     "redux-thunk": "^2.1.0",
-    "vue": "^2.0.1",
+    "vue": "^3.0.0",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0-rc.3",
     "vuex-router-sync": "^3.0.0",
